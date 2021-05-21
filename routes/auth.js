@@ -10,6 +10,8 @@ const authControllerAdmin = require('../controllers/authControllerAdmin')
 
 router.get('/login', (req, res) => res.render('login_registar_user'));
 
+router.get('/loginAdmin', (req, res) => res.render('loginAdmin'));
+
 //------------ Forgot Password Route ------------//
 router.get('/forgot', (req, res) => res.render('forgot'));
 
@@ -25,6 +27,7 @@ router.get('/reset/:id', (req, res) => {
 //router.get('/register', (req, res) => res.render('register'));
 
 router.get('/login_registar_user', (req, res) => res.render('login_registar_user'));
+
 
 router.get('/registeradmin', (req, res) => res.render('colegas'));
 

@@ -7,14 +7,18 @@ const passport = require('passport');
 
 const app = express();
 
+//------------ Bodyparser Configuration ------------//
+app.use(express.urlencoded({ extended: false }))
+
+
 //------------ Passport Configuration ------------//
 require('./config/passport')(passport);
 
 //------------ DB Configuration ------------//
-const db = require('./config/key').MongoURI;
+//const db = require('./config/key').MongoURI;
 
 //------------ Mongo Connection ------------//
-mongoose.connect('mongodb://localhost:27017/projeto', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect("mongodb+srv://amc:3yKUbhg7AtD2Gqb@cluster0.szicu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log("Successfully connected to MongoDB"))
     .catch(err => console.log(err));
   
@@ -36,8 +40,8 @@ app.use('/submit', express.static(__dirname + '/public'));
 
 
 
-//------------ Bodyparser Configuration ------------//
-app.use(express.urlencoded({ extended: false }))
+
+
 
 //------------ Express session Configuration ------------//
 app.use(
